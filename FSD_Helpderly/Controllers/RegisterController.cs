@@ -4,14 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FSD_Helpderly.Models;
-using FireSharp.Interfaces;
-using FireSharp.Config;
-using FireSharp.Response;
+using FSD_Helpderly.DAL;
 
 namespace FSD_Helpderly.Controllers
 {
     public class RegisterController : Controller
     {
+        private FirestoreDAL VolunteerContext = new FirestoreDAL();
         // GET: Register/Index
         public IActionResult Index()
         {
@@ -26,7 +25,7 @@ namespace FSD_Helpderly.Controllers
             if (ModelState.IsValid)
             {
                 //Add volunteer record to database
-
+                //register.VolunteerID = VolunteerContext.AddVolunteer(register);
                 TempData["Message"] = "Your Account have been successfully created!";
                 return RedirectToAction("Index");
             }
