@@ -25,7 +25,7 @@ namespace FSD_Helpderly.Controllers
             if (ModelState.IsValid)
             {
                 //Add volunteer record to database
-                register.VolunteerID = VolunteerContext.AddVolunteer(register);
+                register.Email = VolunteerContext.AddVolunteer(register);
                 TempData["Message"] = "Your Account have been successfully created!";
                 return RedirectToAction("Index");
             }

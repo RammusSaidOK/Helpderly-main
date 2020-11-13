@@ -41,15 +41,15 @@ namespace FSD_Helpderly.DAL
             return volunteer;
         }
 
-        async public void AddVolunteer(string email, string firstName, string lastName, string password)
+        async public void AddVolunteer(string Email, string FirstName, string LastName, string Password)
         {
-            DocumentReference doc = db.Collection("users").Document(email);
+            DocumentReference doc = db.Collection("users").Document(Email);
 
             Dictionary<string, object> volunteer = new Dictionary<string, object>()
             {
-                {"firstName", firstName},
-                {"lastName", lastName},
-                {"password", password},
+                {"firstName", FirstName},
+                {"lastName",  LastName},
+                {"password", Password},
             };
 
             await doc.SetAsync(volunteer);
